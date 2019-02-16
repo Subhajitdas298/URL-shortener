@@ -40,7 +40,7 @@ export class AllListComponent implements OnInit {
   }
 
   loadData() {
-    this.shortenService.getShortenedUrlsPage(this.code, this.page, 15).subscribe(data => {
+    this.shortenService.getUrlsPage(this.code, this.page, 15).subscribe(data => {
       const obj = JSON.parse(JSON.stringify(data));
       this.urlRecords = obj.content;
       this.hasNext =  !obj.last;

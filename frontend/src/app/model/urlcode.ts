@@ -4,7 +4,9 @@ export class URLCode {
   url: string;
   hitCount: number;
 
-  constructor(url: string) {
+  constructor(url: string, code?: string, hitCount?: number) {
     this.url = url;
+    this.code = code;
+    this.hitCount = hitCount;
   }
 }

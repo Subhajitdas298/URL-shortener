@@ -10,16 +10,16 @@ export class ShortenService {
 
   constructor(private http: HttpClient) { }
 
-  getShortenedUrlsPage(code: string, page: number, size: number) {
+  saveUrl(url: string) {
+    return this.http.post<URLCode>(environment.apiURL + '/save', new URLCode(url));
+  }
+
+  getUrlsPage(code: string, page: number, size: number) {
     const urlParams = new HttpParams()
       .set('code', code)
       .set('page', page.toString())
       .set('size', size.toString());
     const options = {params: urlParams};
-    return this.http.get(environment.apiURL + '/page', options);
-  }
-
-  saveUrl(url: string) {
-    return this.http.post<URLCode>(environment.apiURL + '/save', new URLCode(url));
+    return this.http.get<any>(environment.apiURL + '/page', options);
   }
 }

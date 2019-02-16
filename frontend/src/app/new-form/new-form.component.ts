@@ -12,7 +12,7 @@ export class NewFormComponent implements OnInit {
 
   url = '';
 
-  record: URLCode = new URLCode('');
+  public record: URLCode = new URLCode('');
 
   constructor(private shortenService: ShortenService) { }
 
