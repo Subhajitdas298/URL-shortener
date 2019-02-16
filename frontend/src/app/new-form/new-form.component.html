@@ -1,0 +1,12 @@
+<div class="w3-container w3-margin-top w3-center">
+  <form class="w3-container w3-margin-bottom" (submit)="shorten()" ngNativeValidate>
+    <h2>Shorten URL</h2>
+    <p>
+      <label for="url">URL</label>
+      <input name="url" class="w3-input" type="text" [(ngModel)]="url" id="url" required minlength="4">
+    </p>
+    <button class="w3-button w3-grey" type="submit">Shorten</button>
+  </form>
+</div>
+
+<app-result-modal [record]="record"></app-result-modal>

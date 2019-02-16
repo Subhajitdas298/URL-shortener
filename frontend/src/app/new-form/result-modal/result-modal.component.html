@@ -1,0 +1,18 @@
+<div class="w3-modal w3-striped w3-bordered w3-show" [ngClass]="{'w3-show':show}">
+  <div class="w3-modal-content">
+    <span (click)="closeDetails()" class="w3-button w3-display-topright" style="z-index: 5">&times;</span>
+
+    <h2 class="w3-container">URL Shortened</h2>
+
+    <div class="w3-card-4">
+
+      <header class="w3-container w3-light-grey">
+        <h3>New URL: &nbsp;{{ currentRecord.code }}</h3>
+      </header>
+
+      <div class="w3-container w3-light-grey">
+        <p>Old URL: &nbsp;<a href="{{ currentRecord.url }}">{{ currentRecord.url }}</a></p>
+      </div>
+    </div>
+  </div>
+</div>

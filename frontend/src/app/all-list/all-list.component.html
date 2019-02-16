@@ -1,0 +1,57 @@
+<div class="w3-container">
+
+  <h3>Shortened URLs &nbsp;&nbsp;<button class="w3-button w3-circle" (click)="refresh()"><i class="fa fa-refresh"></i></button></h3>
+
+  <h5>Base URL: {{redirectionURL}} </h5>
+
+  <div class="w3-container w3-margin-bottom w3-row w3-center">
+    <input class="w3-col l11 s11 w3-input w3-border" type="text" [ngModel]="code" (ngModelChange)="search($event)"
+           placeholder="Search code">
+    <button class="w3-col l1 s1 w3-button" (click)="stopSearch()">
+      <i class="fa fa-close"></i></button>
+  </div>
+
+  <div class="w3-margin-bottom">
+    <table class="w3-table-all">
+      <thead>
+        <tr class="w3-light-grey">
+          <th>Code</th>
+          <th>URL</th>
+          <th>Hits</th>
+        </tr>
+      </thead>
+    <!-- content added dynamically -->
+      <tr *ngFor="let record of urlRecords">
+        <td>{{ record.code }}</td>
+        <td><a href="{{ record.url }}">{{ record.url }}</a></td>
+        <td>{{ record.hitCount }}</td>
+      </tr>
+
+      <!--
+    <div *ngFor="let record of urlRecords" class="w3-col l6 s12 w3-container w3-margin-bottom">
+      <div class="w3-card-4">
+
+        <header class="w3-container w3-light-grey">
+          <h3>{{ record.code }}</h3>
+        </header>
+
+        <div class="w3-container w3-green">
+          <p><a href="{{ record.url }}">{{ record.url }}</a></p>
+        </div>
+      </div>
+    </div>
+    -->
+    </table>
+  </div>
+  <div class="w3-row w3-margin-bottom" id="traversePanel">
+    <!-- content added dynamically -->
+    <div class="w3-col s6 w3-left-align">
+      <button class="w3-btn w3-blue" (click)="loadPrev()"
+              [disabled]="!hasPrev">< Prev</button>
+    </div>
+    <div class="w3-col s6 w3-right-align">
+      <button class="w3-btn w3-blue" (click)="loadNext()"
+              [disabled]="!hasNext">Next ></button>
+    </div>
+  </div>
+</div>

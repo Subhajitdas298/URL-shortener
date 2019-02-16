@@ -1,0 +1,12 @@
+@import "https://www.w3schools.com/w3css/4/w3.css";
+@import "https://fonts.googleapis.com/css?family=Roboto:300";
+@import "http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+
+body, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+a {
+  text-decoration: none;
+}
