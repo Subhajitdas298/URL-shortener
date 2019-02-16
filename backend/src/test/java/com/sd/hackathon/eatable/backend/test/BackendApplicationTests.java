@@ -30,12 +30,6 @@ public class BackendApplicationTests {
     @Value("${eatable.api.root}")
     private String apiRoot;
 
-    @Value("${eatable.test.mockRedirectionAddress}")
-    private String mockRedirectionAddress;
-
-    @Value("${eatable.test.mockInvalidAddress}")
-    private String mockInvalidAddress;
-
     @Value("${eatable.frontend.errorPageAddress}")
     private String errorPageAddress;
 
@@ -62,12 +56,15 @@ public class BackendApplicationTests {
       */
     @Test
     public void urlTest() throws Exception{
+        String mockRedirectionAddress = "http://dummy.com";
         UrlCode urlCode = new UrlCode();
         urlCode.setUrl(mockRedirectionAddress);
+
         urlCode = objectMapper.readValue(this.mockMvc.perform(post(apiRoot + "/save")
                 .content(objectMapper.writeValueAsString(urlCode))
                 .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON))
+                .accept(MediaType.APPLICATION_JSON)
+                )
                 .andExpect(status().is2xxSuccessful())
                 .andExpect(jsonPath("$.url", is(mockRedirectionAddress)))
                 .andExpect(jsonPath("$.code", notNullValue(UrlCode.class)))
@@ -81,7 +78,7 @@ public class BackendApplicationTests {
     // Testing  redirection for invalid unit
     @Test
     public void invalidCodeRedirectionTest() throws Exception{
-        this.mockMvc.perform(get( "/" + mockInvalidAddress))
+        this.mockMvc.perform(get( "/0"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/error"))
                 .andReturn();

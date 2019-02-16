@@ -5,9 +5,6 @@ eatable:
     sequenceStoreName: shortUrlSequence
   frontend:
     errorPageAddress: http://localhost:4200/error
-  test:
-    mockRedirectionAddress: https://mocktest.free.beeceptor.com/
-    mockInvalidAddress: 0
 
 spring:
   data:
