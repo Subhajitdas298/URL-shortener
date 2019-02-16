@@ -1,0 +1,1 @@
+{"_id":{"$oid":"5c658b24c8766d33648bf3d2"},"sequenceName":"shortUrlSequence","nextNumber":{"$numberInt":"145"},"_class":"com.sd.hackathon.eatable.backend.document.SequenceNumber"}

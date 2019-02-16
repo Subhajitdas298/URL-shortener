@@ -1,0 +1,17 @@
+eatable:
+  api:
+    root: /api
+  encoder:
+    sequenceStoreName: shortUrlSequence
+  frontend:
+    errorPageAddress: http://localhost:4200/error
+  test:
+    mockRedirectionAddress: https://mocktest.free.beeceptor.com/
+    mockInvalidAddress: 0
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: eatable
