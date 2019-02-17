@@ -9,8 +9,8 @@ application:
 spring:
   data:
     mongodb:
-      host: localhost
-      port: 27017
-      database: urlshortener
-  profiles:
-    active: deploy
+      host: ds253104.mlab.com
+      port: 53104
+      database: heroku_npzjdc1p
+      password: udmdg63tiQ8PgDC
+      username: sd298
