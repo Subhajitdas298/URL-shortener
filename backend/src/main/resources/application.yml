@@ -4,7 +4,7 @@ application:
   encoder:
     sequenceStoreName: shortUrlSequence
   frontend:
-    errorPageAddress: http://localhost:4200/error
+    errorPageAddress: http://shortmyurls.tk/error
 
 spring:
   application:
