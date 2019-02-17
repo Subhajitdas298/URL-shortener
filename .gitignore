@@ -1,1 +1,4 @@
 **/*.tmp
+
+### Personal Files ###
+**/application-deploy.yml
