@@ -1,11 +1,4 @@
-application:
-  api:
-    root: /api
-  encoder:
-    sequenceStoreName: shortUrlSequence
-  frontend:
-    errorPageAddress: http://localhost:4200/error
-
+spring:
   data:
     mongodb:
       host: ds253104.mlab.com
@@ -16,3 +9,12 @@ application:
 
 server:
   port: 80
+
+application:
+  api:
+    root: /api
+  encoder:
+    sequenceStoreName: shortUrlSequence
+  frontend:
+    errorPageAddress: http://localhost:4200/error
+
