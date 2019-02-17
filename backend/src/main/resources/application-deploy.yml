@@ -7,9 +7,6 @@ spring:
       password: udmdg63tiQ8PgDC
       username: sd298
 
-server:
-  port: 80
-
 application:
   api:
     root: /api
