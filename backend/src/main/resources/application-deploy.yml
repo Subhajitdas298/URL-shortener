@@ -7,7 +7,6 @@ spring:
       password: udmdg63tiQ8PgDC
       username: sd298
 
-
 application:
   api:
     root: /api
@@ -15,6 +14,3 @@ application:
     sequenceStoreName: shortUrlSequence
   frontend:
     errorPageAddress: http://shortmyurls.tk/error
-
-server:
-  port: $PORT
