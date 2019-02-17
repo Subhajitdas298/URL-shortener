@@ -1,4 +1,4 @@
-eatable:
+application:
   api:
     root: /api
   encoder:
@@ -11,4 +11,6 @@ spring:
     mongodb:
       host: localhost
       port: 27017
-      database: eatable
+      database: urlshortener
+  profiles:
+    active:

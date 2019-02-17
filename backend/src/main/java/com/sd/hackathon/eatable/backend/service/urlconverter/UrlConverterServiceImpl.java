@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UrlConverterServiceImpl implements UrlConverterService {
 
-    @Value("${eatable.encoder.sequenceStoreName}")
+    @Value("${application.encoder.sequenceStoreName}")
     private String sequenceStoreName;
 
     @Autowired

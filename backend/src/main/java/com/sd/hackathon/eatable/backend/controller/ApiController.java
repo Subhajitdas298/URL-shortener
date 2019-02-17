@@ -8,7 +8,7 @@ import org.springframework.data.domain.Slice;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("${eatable.api.root}")
+@RequestMapping("${application.api.root}")
 @CrossOrigin
 public class ApiController {
 

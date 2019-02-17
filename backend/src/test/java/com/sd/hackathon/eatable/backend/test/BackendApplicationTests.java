@@ -27,10 +27,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 public class BackendApplicationTests {
 
-    @Value("${eatable.api.root}")
+    @Value("${application.api.root}")
     private String apiRoot;
 
-    @Value("${eatable.frontend.errorPageAddress}")
+    @Value("${application.frontend.errorPageAddress}")
     private String errorPageAddress;
 
     @Autowired
@@ -47,7 +47,8 @@ public class BackendApplicationTests {
     }
 
     /*
-     MVC tests
+     MVC tests.
+     Note: Database initiation required
       */
 
     /*

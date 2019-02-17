@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.RedirectView;
 @CrossOrigin
 public class AllErrorController implements ErrorController {
 
-    @Value("${eatable.frontend.errorPageAddress}")
+    @Value("${application.frontend.errorPageAddress}")
     private String errorPageAddress;
 
     @RequestMapping("/error")
