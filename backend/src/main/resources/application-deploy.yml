@@ -6,7 +6,6 @@ application:
   frontend:
     errorPageAddress: http://localhost:4200/error
 
-spring:
   data:
     mongodb:
       host: ds253104.mlab.com
@@ -14,3 +13,6 @@ spring:
       database: heroku_npzjdc1p
       password: udmdg63tiQ8PgDC
       username: sd298
+
+server:
+  port: 80
