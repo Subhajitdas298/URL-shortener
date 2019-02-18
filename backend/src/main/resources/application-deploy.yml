@@ -3,14 +3,14 @@ spring:
     name: URLShortenerBackend
   data:
     mongodb:
-      uri: MONGODB_URI
+      uri: ${MONGODB_URI}
 
 application:
   api:
-    root: API_ROOT
+    root: ${API_ROOT}
   encoder:
-    sequenceStoreName: DB_SEQUENCE_NAME
+    sequenceStoreName: ${DB_SEQUENCE_NAME}
   frontend:
-    errorPageAddress: FRONTEND_ERROR_PAGE
+    errorPageAddress: ${FRONTEND_ERROR_PAGE}
 
 
