@@ -8,7 +8,7 @@
 * View the list of urls created and their corresponding number of hits. 
 
 
-##### Using the following stack:
+#### Using the following stack:
 * Angular
 * Spring Framework
 * Gradle
