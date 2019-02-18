@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: URLShortenerBackend
+  data:
+    mongodb:
+      uri: MONGODB_URI
+
+application:
+  api:
+    root: /api
+  encoder:
+    sequenceStoreName: shortUrlSequence
+  frontend:
+    errorPageAddress: http://shortmyurls.tk/error
+
+
