@@ -1,6 +1,6 @@
 # URL Shortener
 
-### Check it live at : [http://shortmyurls.tk](http://shortmyurls.tk)
+### Check it live at : [shortmyurls.tk](http://shortmyurls.tk)
 
 #### URL Shortener
 * Shorts url for eg. localhost:8080/h -> http://subhajitdas.tk
@@ -8,8 +8,7 @@
 * View the list of urls created and their corresponding number of hits. 
 
 
-#### Using the following stack:
+#### Stack:
 * Angular
-* Spring Framework
-* Gradle
+* Spring Framework (Gradle)
 * MongoDB
