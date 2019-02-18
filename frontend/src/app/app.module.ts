@@ -43,8 +43,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule,
     HttpClientModule,
-    BrowserModule,
-    AppModule
+    BrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

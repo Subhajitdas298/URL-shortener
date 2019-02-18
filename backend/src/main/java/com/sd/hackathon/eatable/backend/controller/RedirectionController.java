@@ -2,6 +2,7 @@ package com.sd.hackathon.eatable.backend.controller;
 
 import com.sd.hackathon.eatable.backend.document.UrlCode;
 import com.sd.hackathon.eatable.backend.service.urlconverter.UrlConverterService;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -30,6 +31,7 @@ public class RedirectionController {
         }
         RedirectView redirectView = new RedirectView();
         redirectView.setUrl(redirectUrlString);
+        LoggerFactory.getLogger(this.getClass()).info("Redirecting to : " + redirectUrlString);
         return redirectView;
     }
 }
