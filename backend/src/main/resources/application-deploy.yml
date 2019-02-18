@@ -7,10 +7,10 @@ spring:
 
 application:
   api:
-    root: /api
+    root: API_ROOT
   encoder:
-    sequenceStoreName: shortUrlSequence
+    sequenceStoreName: DB_SEQUENCE_NAME
   frontend:
-    errorPageAddress: http://shortmyurls.tk/error
+    errorPageAddress: FRONTEND_ERROR_PAGE
 
 

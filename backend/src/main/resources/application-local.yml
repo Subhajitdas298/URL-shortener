@@ -1,6 +1,4 @@
 spring:
-  profiles:
-    active: deploy
   application:
     name: URL Shortener backend
   data:
