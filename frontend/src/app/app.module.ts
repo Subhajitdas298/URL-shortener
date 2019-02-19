@@ -10,6 +10,7 @@ import { AllListComponent } from './all-list/all-list.component';
 import { ErrorComponent } from './error/error.component';
 import { NewFormComponent } from './new-form/new-form.component';
 import { ResultModalComponent } from './new-form/result-modal/result-modal.component';
+import { URLBreakerPipe } from './urlbreaker.pipe';
 
 const appRoutes: Routes = [
   {
@@ -37,7 +38,8 @@ const appRoutes: Routes = [
     AllListComponent,
     ErrorComponent,
     NewFormComponent,
-    ResultModalComponent
+    ResultModalComponent,
+    URLBreakerPipe
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

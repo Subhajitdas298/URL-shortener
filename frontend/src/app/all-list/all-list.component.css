@@ -1,3 +1,7 @@
 td:first-child{
   width: auto;
 }
+
+td{
+  word-break: break-word;
+}

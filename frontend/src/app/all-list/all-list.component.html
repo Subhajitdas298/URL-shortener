@@ -4,15 +4,15 @@
 
   <h5>Base URL: {{redirectionURL}} </h5>
 
-  <div class="w3-container w3-margin-bottom w3-row w3-center">
-    <input class="w3-col l11 s11 w3-input w3-border" type="text" [ngModel]="code" (ngModelChange)="search($event)"
+  <div class="w3-margin-bottom w3-row w3-center">
+    <input class="w3-col l11 s10 w3-input w3-border" type="text" [ngModel]="code" (ngModelChange)="search($event)"
            placeholder="Search code">
-    <button class="w3-col l1 s1 w3-button" (click)="stopSearch()">
+    <button class="w3-col l1 s2 w3-button" (click)="stopSearch()">
       <i class="fa fa-close"></i></button>
   </div>
 
   <div class="w3-margin-bottom">
-    <table class="w3-table-all">
+    <table class="w3-table-all table">
       <thead>
         <tr class="w3-light-grey">
           <th>Code</th>
@@ -23,7 +23,7 @@
     <!-- content added dynamically -->
       <tr *ngFor="let record of urlRecords">
         <td>{{ record.code }}</td>
-        <td><a href="{{ record.url }}">{{ record.url }}</a></td>
+        <td><a href="{{ record.url }}">{{ record.url | urlBreaker }}</a></td>
         <td>{{ record.hitCount }}</td>
       </tr>
 
