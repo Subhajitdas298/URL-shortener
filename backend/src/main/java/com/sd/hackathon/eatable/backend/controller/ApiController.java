@@ -3,6 +3,7 @@ package com.sd.hackathon.eatable.backend.controller;
 import com.sd.hackathon.eatable.backend.document.UrlCode;
 import com.sd.hackathon.eatable.backend.service.urlconverter.UrlConverterService;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.PageRequest;
@@ -18,6 +19,9 @@ import java.net.URL;
 @RequestMapping("${application.api.root}")
 @CrossOrigin
 public class ApiController {
+
+    @Autowired
+    Logger logger;
 
     @Value("${application.api.root}")
     private String apiRoot;

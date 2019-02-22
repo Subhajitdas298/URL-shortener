@@ -23,11 +23,7 @@ export class NewFormComponent implements OnInit {
   shorten() {
     if (this.url.length > 4) {
       this.shortenService.saveUrl(this.url).subscribe(resp => {
-          if (resp.type === undefined || resp.type !== 'error') {
-            this.updateModal(resp.body, resp.status);
-          } else {
-            this.updateModalError('Error reaching server', 0);
-          }
+          this.updateModal(resp.body, resp.status);
         },
         error1 => {
           if (error1.status === 400) {

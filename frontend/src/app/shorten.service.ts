@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpParams, HttpResponse} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams, HttpResponse} from '@angular/common/http';
 import {environment} from '../environments/environment';
 import {URLCode} from './model/urlcode';
 
@@ -11,7 +11,11 @@ export class ShortenService {
   constructor(private http: HttpClient) { }
 
   saveUrl(url: string) {
-    return this.http.post<HttpResponse<URLCode>>(environment.apiURL + '/save', new URLCode(url), { observe: 'response' });
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      observe: 'response' as 'response'
+    };
+    return this.http.post<URLCode>(environment.apiURL + '/save', new URLCode(url), httpOptions);
   }
 
   getUrlsPage(code: string, page: number, size: number) {
