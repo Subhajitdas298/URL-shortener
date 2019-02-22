@@ -11,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
 import java.net.URL;
 
 @RestController
@@ -43,9 +42,13 @@ public class ApiController {
                     .body(existing);
         }
 
-        urlCode = urlConverterService.saveUrl(urlCode);
-        return ResponseEntity.created(URI.create(apiRoot + "/" + urlCode.getCode()))
-                .body(urlCode);
+        try{
+            urlCode = urlConverterService.saveUrl(urlCode);
+        }catch (Exception e){
+            return ResponseEntity.unprocessableEntity().body(urlCode);
+        }
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(urlCode);
 
     }
 
