@@ -15,5 +15,3 @@ application:
   frontend:
     errorPageAddress: http://localhost:4200/error
 
-server:
-  port: 8080
