@@ -7,5 +7,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface UrlCodeRepository extends MongoRepository<UrlCode, String> {
     UrlCode findByCode(String code);
+    UrlCode findByUrl(String url);
     Slice<UrlCode> findAllByCodeStartingWith(String code, Pageable pageable);
 }

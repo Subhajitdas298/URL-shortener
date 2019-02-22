@@ -1,18 +1,22 @@
 <div class="w3-modal w3-striped w3-bordered w3-show" [ngClass]="{'w3-show':show}">
-  <div class="w3-modal-content">
-    <span (click)="closeDetails()" class="w3-button w3-display-topright" style="z-index: 5">&times;</span>
+  <div class="w3-modal-content" *ngIf="currentResult !== undefined">
+    <span (click)="closeDetails()" class="w3-button w3-display-topright w3-light-grey" style="z-index: 5">&times;</span>
 
-    <h2 class="w3-container">URL Shortened</h2>
+    <h2 class="w3-container w3-card-2  w3-light-grey">{{currentResult.info}}</h2>
 
-    <div class="w3-card-4">
+    <!-- for 201 (Created) and 200 (Ok - Already present) -->
+    <div *ngIf="currentResult.status == 201 || currentResult.status == 200">
+      <div class="w3-container">
 
-      <header class="w3-container w3-light-grey">
-        <h3>New URL: &nbsp;{{ currentRecord.code }}</h3>
-      </header>
+        <header>
+          <h3>Short URL: &nbsp;{{ currentResult.urlCode.code }}</h3>
+        </header>
 
-      <div class="w3-container w3-light-grey">
-        <p>Old URL: &nbsp;<a href="{{ currentRecord.url }}">{{ currentRecord.url }}</a></p>
+        <div>
+          <p>Long URL: &nbsp;<a href="{{ currentResult.urlCode.url }}">{{ currentResult.urlCode.url }}</a></p>
+        </div>
       </div>
     </div>
+
   </div>
 </div>

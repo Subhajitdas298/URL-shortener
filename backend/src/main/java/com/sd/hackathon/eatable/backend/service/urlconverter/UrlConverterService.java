@@ -7,6 +7,7 @@ import org.springframework.data.domain.Slice;
 public interface UrlConverterService {
     UrlCode saveUrl(UrlCode URLCode);
     UrlCode updateUrl(UrlCode URLCode);
-    UrlCode getUrl(String id);
+    UrlCode getUrl(String code);
+    UrlCode getCode(String url);
     Slice<UrlCode> pageUrlsByCode(String code, Pageable pageable);
 }

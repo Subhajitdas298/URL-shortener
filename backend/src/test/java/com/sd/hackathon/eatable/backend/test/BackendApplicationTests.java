@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -57,7 +58,7 @@ public class BackendApplicationTests {
       */
     @Test
     public void urlTest() throws Exception{
-        String mockRedirectionAddress = "http://dummy.com";
+        String mockRedirectionAddress = "http://0.com";
         UrlCode urlCode = new UrlCode();
         urlCode.setUrl(mockRedirectionAddress);
 

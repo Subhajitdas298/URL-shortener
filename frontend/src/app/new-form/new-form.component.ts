@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {URLCode} from '../model/urlcode';
 import {ShortenService} from '../shorten.service';
 import {environment} from '../../environments/environment';
+import {HttpResponse} from '@angular/common/http';
+import {AddResult} from '../model/add-result';
 
 @Component({
   selector: 'app-new-form',
@@ -11,8 +13,7 @@ import {environment} from '../../environments/environment';
 export class NewFormComponent implements OnInit {
 
   url = '';
-
-  public record: URLCode = new URLCode('');
+  result: AddResult;
 
   constructor(private shortenService: ShortenService) { }
 
@@ -21,10 +22,30 @@ export class NewFormComponent implements OnInit {
 
   shorten() {
     if (this.url.length > 4) {
-      this.shortenService.saveUrl(this.url).subscribe(data => {
-        this.record = data;
-        this.record.code = environment.redirectionURL + '/' + this.record.code;
-      });
+      this.shortenService.saveUrl(this.url).subscribe(resp => {
+          if (resp.type === undefined || resp.type !== 'error') {
+            this.updateModal(resp.body, resp.status);
+          } else {
+            this.updateModalError('Error reaching server', 0);
+          }
+        },
+        error1 => {
+          if (error1.status === 400) {
+            this.updateModalError('Invalid URL', error1.status);
+          } else {
+            this.updateModalError(error1.error, error1.status);
+          }
+        });
     }
+  }
+
+  updateModal(record: URLCode, status: number) {
+    record.code = environment.redirectionURL + '/' + record.code;
+    // console.log(this.status);
+    this.result = new AddResult('URL Shortened', status, record);
+  }
+
+  updateModalError(info: string, status: number) {
+    this.result = new AddResult(info, status);
   }
 }

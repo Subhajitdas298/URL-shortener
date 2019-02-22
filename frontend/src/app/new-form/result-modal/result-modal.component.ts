@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {URLCode} from '../../model/urlcode';
+import {AddResult} from '../../model/add-result';
 
 @Component({
   selector: 'app-result-modal',
@@ -9,11 +10,11 @@ import {URLCode} from '../../model/urlcode';
 export class ResultModalComponent implements OnInit {
 
   show: boolean;
-  currentRecord: URLCode;
+  currentResult: AddResult;
 
   @Input()
-  set record(record: URLCode) {
-    this.currentRecord = record;
+  set result(result: AddResult) {
+    this.currentResult = result;
     this.show = true;
   }
 

@@ -50,6 +50,11 @@ public class UrlConverterServiceImpl implements UrlConverterService {
     }
 
     @Override
+    public UrlCode getCode(String url) {
+        return urlRepository.findByUrl(url);
+    }
+
+    @Override
     public Slice<UrlCode> pageUrlsByCode(String code, Pageable pageable) {
         return urlRepository.findAllByCodeStartingWith(code, pageable);
     }
