@@ -1,8 +1,8 @@
 package com.sd.hackathon.eatable.backend.service.urlconverter;
 
-import com.sd.hackathon.eatable.backend.document.SequenceNumber;
+import com.sd.hackathon.eatable.backend.document.Sequence;
 import com.sd.hackathon.eatable.backend.document.UrlCode;
-import com.sd.hackathon.eatable.backend.repository.SequenceNumberRepository;
+import com.sd.hackathon.eatable.backend.repository.SequenceRepository;
 import com.sd.hackathon.eatable.backend.repository.UrlCodeRepository;
 import com.sd.hackathon.eatable.backend.service.transcoder.NumberEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,17 +21,17 @@ public class UrlConverterServiceImpl implements UrlConverterService {
     private UrlCodeRepository urlRepository;
 
     @Autowired
-    private SequenceNumberRepository numberRepository;
+    private SequenceRepository numberRepository;
 
     @Autowired
     private NumberEncoder encoder;
 
     @Override
     public UrlCode saveUrl(UrlCode urlCode) {
-        SequenceNumber sequenceStore = numberRepository.findBySequenceName(sequenceStoreName);
-        long nextNo = sequenceStore.getNextNumber();
+        Sequence sequenceStore = numberRepository.findById(sequenceStoreName).get();
+        long nextNo = sequenceStore.getNext();
 
-        sequenceStore.setNextNumber(nextNo + 1);
+        sequenceStore.setNext(nextNo + 1);
         numberRepository.save(sequenceStore);
 
         urlCode.setCode(encoder.encode(nextNo));
@@ -46,7 +46,7 @@ public class UrlConverterServiceImpl implements UrlConverterService {
 
     @Override
     public UrlCode getUrl(String code) {
-        return urlRepository.findByCode(code);
+        return urlRepository.findById(code).get();
     }
 
     @Override

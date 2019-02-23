@@ -8,10 +8,8 @@ import org.springframework.data.annotation.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class SequenceNumber {
+public class Sequence {
     @Id
-    private String id;
-
-    private String sequenceName;
-    private long nextNumber;
+    private String name;
+    private long next;
 }
